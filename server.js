@@ -8,12 +8,12 @@ var api         = require('./app/api/metadata.js')
 var app         = express()
 var db 
 
-MongoClient.connect("mongodb://LeetDave:EasyPass13@ds133398.mlab.com:33398/djd-filemetadata", function (err, database){
+MongoClient.connect("mongodb://LeetDave:14789632@ds149049.mlab.com:49049/djd-liftrack", function (err, database){
 	if (err) throw err;
 	db = database
 	console.log("connected to filemetadata db")
 		
-	db.createCollection("files",{
+	db.createCollection("workouts",{
 		capped:true,
 		size: 5242880,
 		max: 5000
