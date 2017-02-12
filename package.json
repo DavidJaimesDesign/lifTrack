@@ -1,9 +1,12 @@
 {
-  "name": "filemetadata_microservice",
-  "version": "1.0.0",
-  "description": "A service that allows users to upload files and returns the size of the file",
+  "name": "liftrack",
+  "version": "0.0.1",
+  "description": "An app that is basically your gym journal plain and simple.",
   "main": "index.js",
   "scripts": {
+    "start": "if-env NODE_ENV-production && npm run start:prod || nom run start:dev",
+    "start-dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback",
+    "start-prod": "webpack && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,14 +24,29 @@
   "author": "David Jaimes",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DavidJaimesDesign/fcc_api_projects/issues"
+    "url": "https://github.com/DavidJaimesDesign/lifTrack/issues"
   },
-  "homepage": "https://github.com/DavidJaimesDesign/fcc_api_projects#readme",
+  "homepage": "https://github.com/DavidJaimesDesign/lifTrack#readme",
   "dependencies": {
+    "compression": "^1.6.1",
+    "if-env": "^1.0.0",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "jade": "^1.11.0",
     "mongodb": "^2.2.16",
-    "multer": "^1.2.1"
+    "multer": "^1.2.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.0"
+  },
+
+  "devDependencies":{
+    "babel-core": "^6.5.1",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "http-server": "^0.8.5",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
   }
 }
