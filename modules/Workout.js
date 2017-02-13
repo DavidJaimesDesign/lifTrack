@@ -4,12 +4,7 @@ import { browserHistor } from 'react-router'
 export default React.createClass({
     
     handleSubmit(event){
-        event.preventDefault();
-        const userName = event.target.elements[0].value
-        const repo = event.target.elements[1].value
-        const path = `/repos/${userName}/${repo}`
-        browserHistory.push(path)
-        console.log(path)
+        console.log("formsubmitted")
     },
 
     render() {
@@ -19,20 +14,19 @@ export default React.createClass({
                 <h4> more to come</h4>	
                 <form onSubmit={this.handleSubmit}>
                 	<h5>Squat</h5>
-                	5<input type="checkbox" name="vehicle1" value="Bike"/> {' '} 
-                	5<input type="checkbox" name="vehicle1" value="Bike"/> {' '}
-                	5<input type="checkbox" name="vehicle1" value="Bike"/> {' '}
+                	5<input type="checkbox" name="squat1" value="squatset1"/> {' '} 
+                	5<input type="checkbox" name="squat2" value="squatset2"/> {' '}
+                	5<input type="checkbox" name="squat3" value="squatset3"/> {' '}
 
                 	<h5>DeadLift</h5>
-                	5 <input type="checkbox" name="vehicle1" value="Bike"/> {' '}
+                	5 <input type="checkbox" name="deadlift" value="deadlift"/> {' '}
                 	<h5>Bench</h5>
-                	5<input type="checkbox" name="vehicle1" value="Bike"/> {' '} 
-                	5<input type="checkbox" name="vehicle1" value="Bike"/> {' '}
-                	5<input type="checkbox" name="vehicle1" value="Bike"/> {' '}
+                	5<input type="checkbox" name="bench1" value="benchset1"/> {' '} 
+                	5<input type="checkbox" name="bench2" value="benchset2"/> {' '}
+                	5<input type="checkbox" name="bench3" value="benchset3"/> {' '}
                 	<h5>Completed</h5>
                     <button type="submit">Go</button>
                 </form>
-                {this.props.children}
             </div>
         )
     }
