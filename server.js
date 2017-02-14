@@ -4,7 +4,7 @@ var MongoClient = require('mongodb').MongoClient
 var multer      = require('multer')
 var bodyParser  = require('body-parser')
 var routes      = require('./app/routes/index.js')
-var api         = require('./app/api/metadata.js')
+var api         = require('./app/api/workoutsave.js')
 var compression = require('compression')
 var app         = express()
 var db 
@@ -14,7 +14,7 @@ var db
 MongoClient.connect("mongodb://LeetDave:14789632@ds149049.mlab.com:49049/djd-liftrack", function (err, database){
 	if (err) throw err;
 	db = database
-	console.log("connected to filemetadata db")
+	console.log("connected to workous db")
 		
 	db.createCollection("workouts",{
 		capped:true,
@@ -24,15 +24,18 @@ MongoClient.connect("mongodb://LeetDave:14789632@ds149049.mlab.com:49049/djd-lif
 	//app.use(bodyParser.json())
 
     app.use(compression())
-    app.use(expresss.static(path.join(__dirname, 'public')))
+    app.use(express.static(path.join(__dirname, 'public')))
 
 	//app.set('views', path.join(__dirname, 'views'))//I dont know if to use this one
-    app.get("*", function(req, res){
+    app.get("/", function(req, res){
         res.sendFile(path.join(__dirname, 'public', 'index.html'))
     })
 
-	routes(app, db)
-	api(app, db)
+	routes(app, db) 
+	api(app, db) //app isnt listening here
 
-	app.listen(process.env.PORT || 3000)
+	var PORT = process.env.PORT || 3000
+	app.listen(PORT, function() {
+  		console.log('Production Express server running at localhost:' + PORT)
+	})
 })

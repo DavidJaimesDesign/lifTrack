@@ -27,11 +27,11 @@ module.exports = function(app, db) {
 		}
 
 		//we don't need to save to the db we just need the size 
-		db.collection('workouts').save(workout, function(err, result){
-			if err return console.log(err)
-		})
-		console.log(req.file)
-		res.send(fileDetails)
+		//db.collection('workouts').save(workout, function(err, result){
+		//	if err return console.log(err)
+		//})
+		console.log(workout)
+		//res.send(fileDetails)
 	})
 
 	

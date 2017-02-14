@@ -1,7 +1,7 @@
 'use-strict'
 
 module.exports = function(app) {
-	app.route('/').get(function(req, res){
-		res.render('index')
+	app.route('/testmore').get(function(req, res){
+		res.send('links have been made')
 	})
 }
