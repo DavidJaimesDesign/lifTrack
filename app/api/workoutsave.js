@@ -9,27 +9,27 @@ module.exports = function(app, db) {
 	app.post('/workout', function(req, res, next){
 		console.log("POSTED")
 		var workout = {
-			exercise:{
+			exercise1:{
 				name: "squat-test",
 				sets: 3,
 				reps: 5
 			},
-			exercise:{
+			exercise2:{
 				name: "deadlift-test",
 				sets: 1,
 				reps: 5
 			},
-			exercise:{
+			exercise3:{
 				name: "bench-test",
 				sets: 3,
 				reps: 5	
 			}
 		}
 
-		//we don't need to save to the db we just need the size 
-		//db.collection('workouts').save(workout, function(err, result){
-		//	if err return console.log(err)
-		//})
+		//save to database
+		db.collection('workouts').save(workout, function(err, result){
+			if (err) return console.log(err)
+		})
 		console.log(workout)
 		res.send(workout)
 	})
