@@ -30,18 +30,21 @@ class Workout extends Component{
 
         this.handleSquatCheck    = this.handleSquatCheck.bind(this);
         this.handleDeadliftCheck = this.handleDeadliftCheck.bind(this);
-        this.handleBenchCheck    = this.handleBenchCheck.bind(this)
+        this.handleBenchCheck    = this.handleBenchCheck.bind(this);
+        this.handleSubmit        = this.handleSubmit.bind(this);
     }
     
 
     handleSubmit(event){
-        //event.preventDefault();
+        event.preventDefault();
         console.log("back to regular forms")
         let formData = new FormData();
         let request = new XMLHttpRequest();
 
-        formData.append("username", "Groucho");
-        console.log(formData);
+        formData.set('squatSets', this.state.workout.squat.sets);
+        formData.set('deadLift', this.state.workout.deadlift.sets);
+        formData.set('bench', this.state.workout.bench.sets);
+
         request.open('POST','/workout', true);
         request.send(formData)
     }
