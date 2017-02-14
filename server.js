@@ -27,7 +27,7 @@ MongoClient.connect("mongodb://LeetDave:14789632@ds149049.mlab.com:49049/djd-lif
     app.use(express.static(path.join(__dirname, 'public')))
 
 	//app.set('views', path.join(__dirname, 'views'))//I dont know if to use this one
-    app.get("/", function(req, res){
+    app.get("*", function(req, res){
         res.sendFile(path.join(__dirname, 'public', 'index.html'))
     })
 

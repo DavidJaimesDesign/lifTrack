@@ -31,7 +31,7 @@ module.exports = function(app, db) {
 		//	if err return console.log(err)
 		//})
 		console.log(workout)
-		//res.send(fileDetails)
+		res.send(workout)
 	})
 
 	
