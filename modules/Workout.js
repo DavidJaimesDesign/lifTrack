@@ -11,8 +11,8 @@ class Workout extends Component{
         let request = new XMLHttpRequest();
 
         formData.append("username", "Groucho");
-        console.log(formData)
-        request.open('POST', 'send', true);
+        console.log(formData);
+        request.open('POST','/workout', true);
         request.send(formData)
     }
     render() {
