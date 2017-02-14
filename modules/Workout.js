@@ -28,7 +28,9 @@ class Workout extends Component{
             }
         }
 
-        this.handleSquatCheck = this.handleSquatCheck.bind(this);
+        this.handleSquatCheck    = this.handleSquatCheck.bind(this);
+        this.handleDeadliftCheck = this.handleDeadliftCheck.bind(this);
+        this.handleBenchCheck    = this.handleBenchCheck.bind(this)
     }
     
 
@@ -68,17 +70,49 @@ class Workout extends Component{
     }
 
     handleDeadliftCheck(event){
-        console.log("deadlift connected");
         const target = event.target;
         const value  = target.type === 'checkbox' ? target.checked : target.value;
-        console.log(value);
+        
+        if(value){
+            let setCheck = this.state.workout.deadlift.sets;
+            if(setCheck < 1){
+                let workout = this.state.workout;
+                ++workout.deadlift.sets;
+                this.setState({workout});
+                console.log(this.state.workout.deadlift.sets);
+            }
+        }else{
+            let setCheck = this.state.workout.deadlift.sets;
+            if(setCheck >= 0){
+                let workout = this.state.workout;
+                --workout.deadlift.sets;
+                this.setState({workout});
+                console.log(this.state.workout.deadlift.sets);
+            }
+        }
     }
 
     handleBenchCheck(event){
-        console.log("bench connected");
         const target = event.target;
         const value  = target.type === 'checkbox' ? target.checked : target.value;
-        console.log(value);
+        
+        if(value){
+            let setCheck = this.state.workout.bench.sets;
+            if(setCheck < 3){
+                let workout = this.state.workout;
+                ++workout.bench.sets;
+                this.setState({workout});
+                console.log(this.state.workout.bench.sets);
+            }
+        }else{
+            let setCheck = this.state.workout.bench.sets;
+            if(setCheck >= 0){
+                let workout = this.state.workout;
+                --workout.bench.sets;
+                this.setState({workout});
+                console.log(this.state.workout.bench.sets);
+            }
+        }
     }
 
     render() {
