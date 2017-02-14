@@ -49,7 +49,21 @@ class Workout extends Component{
         const value  = target.type === 'checkbox' ? target.checked : target.value;
 
         if(value){
-            console.log(this.state.workout.squat.sets);
+            let setCheck = this.state.workout.squat.sets;
+            if(setCheck < 3){
+                let workout = this.state.workout;
+                ++workout.squat.sets;
+                this.setState({workout});
+                console.log(this.state.workout.squat.sets);
+            }
+        }else{
+            let setCheck = this.state.workout.squat.sets;
+            if(setCheck >= 0){
+                let workout = this.state.workout;
+                --workout.squat.sets;
+                this.setState({workout});
+                console.log(this.state.workout.squat.sets);
+            }
         }
     }
 
