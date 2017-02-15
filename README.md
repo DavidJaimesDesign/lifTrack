@@ -3,13 +3,13 @@
 
 ###Version Log
 
-    ##Version 0.0.1 - current version
-        1. User can complete workout form 
-        2. User can submit form and it is saved to a database
-    ##Version 0.0.2 - in progress
-        1. User can see workout stats of previous workouts
-        2. User can add to or remove workouts including the defaults
-    
+##Version 0.0.1 - current version
+1. User can complete workout form 
+2. User can submit form and it is saved to a database
+##Version 0.0.2 - in progress
+1. User can see workout stats of previous workouts
+2. User can add to or remove workouts including the defaults
+
 ##MVP-Stories
 1. I can log in and start a workout
 2. I can check off completed sets 
