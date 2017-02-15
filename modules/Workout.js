@@ -38,15 +38,12 @@ class Workout extends Component{
     handleSubmit(event){
         event.preventDefault();
         console.log("back to regular forms")
-        let formData = new FormData();
         let request = new XMLHttpRequest();
-
-        formData.set('squatSets', this.state.workout.squat.sets);
-        formData.set('deadLift', this.state.workout.deadlift.sets);
-        formData.set('bench', this.state.workout.bench.sets);
+        let sendWorkout = this.state.workout;
 
         request.open('POST','/workout', true);
-        request.send(formData)
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.send(JSON.stringify(sendWorkout));
     }
 
     handleSquatCheck(event){

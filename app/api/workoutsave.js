@@ -7,22 +7,24 @@ module.exports = function(app, db) {
 	})
 	
 	app.post('/workout', function(req, res, next){
+		//var squatsets = req.body
+
 		console.log("POSTED")
 		var workout = {
 			exercise1:{
-				name: "squat-test",
-				sets: 3,
-				reps: 5
+				name: "squat",
+				sets: req.body.squat.sets,
+				reps: req.body.squat.reps
 			},
 			exercise2:{
-				name: "deadlift-test",
-				sets: 1,
-				reps: 5
+				name: "deadlift",
+				sets: req.body.deadlift.sets,
+				reps: req.body.deadlift.reps
 			},
 			exercise3:{
-				name: "bench-test",
-				sets: 3,
-				reps: 5	
+				name: "bench",
+				sets: req.body.bench.sets,
+				reps: req.body.bench.reps
 			}
 		}
 
@@ -30,8 +32,8 @@ module.exports = function(app, db) {
 		db.collection('workouts').save(workout, function(err, result){
 			if (err) return console.log(err)
 		})
-		console.log(workout)
-		res.send(workout)
+		console.log(req.body)
+		res.send(req.body)
 	})
 
 	

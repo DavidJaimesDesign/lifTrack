@@ -21,7 +21,8 @@ MongoClient.connect("mongodb://LeetDave:14789632@ds149049.mlab.com:49049/djd-lif
 		size: 5242880,
 		max: 5000
 	})
-	//app.use(bodyParser.json())
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use(compression())
     app.use(express.static(path.join(__dirname, 'public')))
