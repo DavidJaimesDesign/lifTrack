@@ -21,6 +21,34 @@ MongoClient.connect("mongodb://LeetDave:14789632@ds149049.mlab.com:49049/djd-lif
 		size: 5242880,
 		max: 5000
 	})
+
+    db.createCollection("users",{
+        capped:true,
+        size: 5242880,
+        max: 5000
+    })
+    
+    var userCheck;
+    userCheck = db.collection('users').find({ name: "user1"})
+    if(typeof user1 == 'undefined'){
+        var user = {
+            name: "user1",
+            height: 190,
+            weight: 100,
+            squat: 285,
+            deadlift: 285,
+            bench: 210,
+            overheadpress: 125,
+            clean: 135,
+            increment: false,
+            incrementvalue: 5,
+            frequency: 3
+        }       
+
+        db.collection('users').save(user, function(err, result){
+            if(err) console.log(err);
+        })
+    }
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded({ extended: true }));
 
