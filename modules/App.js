@@ -7,9 +7,10 @@ class App extends Component{
       <div>
         <h1>Liftrack workout App v 0.0.1</h1>
         <ul role="nav">
-          <li><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
-          <li><NavLink to="/about">About</NavLink></li>
-          <li><NavLink to="/workout">Workout</NavLink></li>
+            <li><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
+            <li><NavLink to="/about">About</NavLink></li>
+            <li><NavLink to="/stats">Stats</NavLink></li>
+            <li><NavLink to="/workout">Workout</NavLink></li>
         </ul>
         {this.props.children}
       </div>

@@ -36,7 +36,7 @@ class Workout extends Component{
     
 
     handleSubmit(event){
-        event.preventDefault();
+        //event.preventDefault();
         console.log("back to regular forms")
         let request = new XMLHttpRequest();
         let sendWorkout = this.state.workout;
